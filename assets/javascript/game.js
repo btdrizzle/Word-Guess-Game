@@ -20,11 +20,24 @@ function playGame () {
 //Creates _ _ _ _ in place of letters in word //
     var placeHolder = "_".repeat(gameWord.length);
     console.log(placeHolder);
+    
+    var placeHolderText = document.getElementById("placeholder-text");
+    placeHolderText.textContent = placeHolder;
 
     var guessesRemaining = (gameWord.length + 5);
     console.log("Guesses remaining: " + guessesRemaining);
 
+    var guessesRemainingText = document.getElementById("guessesRemaining-text");
+    guessesRemainingText.textContent = "Guesses Remaining: " + guessesRemaining;
+
     var lettersGuessed = "";
+    var lettersGuessedText = document.getElementById("lettersGuessed-text");
+    lettersGuessedText.textContent = lettersGuessed;
+
+    var gameEnd = ""
+    var gameEndText = document.getElementById("gameEnd-text");
+    gameEndText.textContent = gameEnd;
+
 // This Function replaces a specified character at a specified index in a string //
     String.prototype.setCharAt = function(idx,chr) {
         if (idx > this.length -1) {
@@ -41,14 +54,17 @@ function playGame () {
 
         var x = lettersGuessed.includes(userGuess);
         console.log("This letter has been guessed before: " + x);
+
     // If letter has already been guessed we will do nothing!  Else
     // we will keep playing //
         if (x == false) {
             guessesRemaining = guessesRemaining - 1;
             console.log("Guesses remaining: " + guessesRemaining);
+            guessesRemainingText.textContent = "Guesses Remaining: " + guessesRemaining;
         
             lettersGuessed = (lettersGuessed + userGuess);    
             console.log("Letters guessed: " + lettersGuessed)
+            lettersGuessedText.textContent = lettersGuessed;
     
         //Seeing here if the guess is part of the word //
             var t = gameWord.includes(userGuess);
@@ -65,12 +81,25 @@ function playGame () {
                     placeHolder = placeHolder.setCharAt(index[j],userGuess);
                 }
                 console.log("Placeholder is now: " + placeHolder);
+                placeHolderText.textContent = placeHolder;
             }
         
         }
+        if (guessesRemaining === 0) {
+            var gameEnd = "You have lost!  You should try again!  Press Enter to play again";
+            gameEndText.textContent = gameEnd;
+            games += 1;
+            console.log("Games played: " + games);
+            console.log("Wins: " + wins);
+            console.log("Press Enter to play again!");
+            if (userGuess === "Enter") {
+                playGame();
+            }
+        }
         var finished = placeHolder.includes("_");
         if (finished === false) {
-            var gameEndText = "You have won the game!!  Press Enter to play again";
+            var gameEnd = "You have won the game!!  Press Enter to play again";
+            gameEndText.textContent = gameEnd;
             wins += 1;
             games += 1;
             console.log("Games played: " + games);
@@ -80,16 +109,7 @@ function playGame () {
                 playGame();
             }
         }
-        if (guessesRemaining === 0) {
-            var gameEndText = "You have lost!  You should try again!  Press Enter to play again";
-            games += 1;
-            console.log("Games played: " + games);
-            console.log("Wins: " + wins);
-            console.log("Press Enter to play again!");
-            if (userGuess === "Enter") {
-                playGame();
-            }
-        }
+
     };
 };
 playGame ();
