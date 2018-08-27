@@ -38,7 +38,7 @@ function playGame () {
     var lettersGuessedText = document.getElementById("lettersGuessed-text");
     lettersGuessedText.textContent = lettersGuessed;
 
-    var gameEnd = ""
+    var gameEnd = "";
     var gameEndText = document.getElementById("gameEnd-text");
     gameEndText.textContent = gameEnd;
 
@@ -50,7 +50,7 @@ function playGame () {
         else {
             return this.substr(0,idx) + chr + this.substr(idx+1);
         } 
-    };
+    }
 
     document.onkeyup = function(event) {
         var userGuess = event.key;
@@ -85,7 +85,7 @@ function playGame () {
             guessesRemainingText.textContent = "Guesses Remaining: " + guessesRemaining;
         
             lettersGuessed = (lettersGuessed + userGuess);    
-            console.log("Letters guessed: " + lettersGuessed)
+            console.log("Letters guessed: " + lettersGuessed);
             lettersGuessedText.textContent = lettersGuessed;
         
         }
