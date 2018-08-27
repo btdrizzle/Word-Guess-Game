@@ -6,9 +6,13 @@ console.log(romantics);
 
 var wins = 0;
 console.log("# of wins: " + wins);
+var winsText = document.getElementById("wins-text");
+winsText.textContent = "Wins: " + wins;
 
 var games = 0;
 console.log("# of games played: " + games);
+var gamesPlayed = document.getElementById("gamesPlayed-text");
+gamesPlayed.textContent = "Games Played: " + games;
 
 //WANT TO MAKE CODE JUMP TO HERE FOR EACH NEW GAME //
 function playGame () {
@@ -58,13 +62,6 @@ function playGame () {
     // If letter has already been guessed we will do nothing!  Else
     // we will keep playing //
         if (x == false) {
-            guessesRemaining = guessesRemaining - 1;
-            console.log("Guesses remaining: " + guessesRemaining);
-            guessesRemainingText.textContent = "Guesses Remaining: " + guessesRemaining;
-        
-            lettersGuessed = (lettersGuessed + userGuess);    
-            console.log("Letters guessed: " + lettersGuessed)
-            lettersGuessedText.textContent = lettersGuessed;
     
         //Seeing here if the guess is part of the word //
             var t = gameWord.includes(userGuess);
@@ -83,7 +80,17 @@ function playGame () {
                 console.log("Placeholder is now: " + placeHolder);
                 placeHolderText.textContent = placeHolder;
             }
+            guessesRemaining = guessesRemaining - 1;
+            console.log("Guesses remaining: " + guessesRemaining);
+            guessesRemainingText.textContent = "Guesses Remaining: " + guessesRemaining;
         
+            lettersGuessed = (lettersGuessed + userGuess);    
+            console.log("Letters guessed: " + lettersGuessed)
+            lettersGuessedText.textContent = lettersGuessed;
+        
+        }
+        if (userGuess === "Enter") {
+            playGame();
         }
         if (guessesRemaining === 0) {
             var gameEnd = "You have lost!  You should try again!  Press Enter to play again";
@@ -92,9 +99,7 @@ function playGame () {
             console.log("Games played: " + games);
             console.log("Wins: " + wins);
             console.log("Press Enter to play again!");
-            if (userGuess === "Enter") {
-                playGame();
-            }
+
         }
         var finished = placeHolder.includes("_");
         if (finished === false) {
@@ -105,9 +110,7 @@ function playGame () {
             console.log("Games played: " + games);
             console.log("Wins: " + wins);
             console.log("Press Enter to play again!");
-            if (userGuess === "Enter") {
-                playGame();
-            }
+
         }
 
     };

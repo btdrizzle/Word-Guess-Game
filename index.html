@@ -10,11 +10,11 @@
 </head>
 <body>
     <div id ="header" class="container-fluid">
-        <h1 class="display-4 col-md-10">Romantic Composer Name Game</h1>
+        <h1 class="display-3 col-md-10">Romantic Composer Name Game</h1>
     </div>
-    <div id="bigcontainer" class="container rcol-md-10">
+    <div id="bigcontainer" class="container col-md-10">
         <div class="row align-items-start">
-            <div id="maingame" class="col-8">
+            <div id="maingame" class="col-md-8">
                 <h2>Type letters to guess the names of your favorite romantic composers!</h2>
                 <br>
                 <br>
@@ -25,12 +25,17 @@
                 <br>
                 <p id="gameEnd-text"></p>
             </div>
-            <div id="gameplay1" class="col-4">
-               <p id="guessesRemaining-text"></p>
-               <p>Letters Guessed:</p>
-               <p id="lettersGuessed-text"></p>
+            <div id="gameplay1" class="col-md-4">
+                <div class="games">
+                    <p id="guessesRemaining-text"></p>
+                    <p>Letters Guessed:</p>
+                    <p id="lettersGuessed-text"></p>
+                </div>
+                <div class="games">
+                    <p id="wins-text"></p>
+                    <p id="gamesPlayed-text"></p>
+                </div>
             </div>
-            <div id="gameplay2" class=""></div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

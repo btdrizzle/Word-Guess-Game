@@ -4,7 +4,8 @@ body {
     color: #ffffff;
 }
 #header {
-    background-color: #2f4f4f;
+    background-color: #2f474f;
+    background-image: url(../images/church.png);
     margin: 0;
     width: 100%;
     text-align: center;
@@ -21,7 +22,7 @@ h2, h3 {
     font-weight: bold;
 }
 p {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: bold;
     max-width: 80%;
     margin: auto;
@@ -37,7 +38,10 @@ p {
 }
 #gameplay1 {
     padding: 5px;
-    height: calc(60vh - 150px);
+    height: calc(100vh - 150px);
+}
+.games {
+    min-height: 50%;
 }
 #maingame {
     height: calc(100vh - 150px);  
