@@ -90,12 +90,13 @@ function playGame () {
         
         }
 
+
         var finished = placeHolder.includes("_");
         if (finished === false) {
             var gameEnd = "You have won the game!!  Press Enter to play again";
             gameEndText.textContent = gameEnd;
-            wins += 1;
-            games += 1;
+            wins++;
+            games++;
             winsText.textContent = "Wins: " + wins;
             gamesPlayed.textContent = "Games Played: " + games;
             console.log("Games played: " + games);
@@ -112,9 +113,10 @@ function playGame () {
             console.log("Wins: " + wins);
             console.log("Press Enter to play again!");
 
-            if (userGuess === "Enter") {
-                playGame();
-            }
+
+        }
+        if (userGuess === "Enter") {
+            playGame();
         }
 
     };
