@@ -17,11 +17,11 @@ gamesPlayed.textContent = "Games Played: " + games;
 //WANT TO MAKE CODE JUMP TO HERE FOR EACH NEW GAME //
 function playGame () {
 
-//Random word from array selected by randomly selecting number //
+    //Random word from array selected by randomly selecting number //
     var gameWord = romantics[Math.floor(Math.random() * romantics.length)];
     console.log("The word this game is: " + gameWord);
 
-//Creates _ _ _ _ in place of letters in word //
+    //Creates _ _ _ _ in place of letters in word //
     var placeHolder = "_".repeat(gameWord.length);
     console.log(placeHolder);
     
@@ -42,7 +42,7 @@ function playGame () {
     var gameEndText = document.getElementById("gameEnd-text");
     gameEndText.textContent = gameEnd;
 
-// This Function replaces a specified character at a specified index in a string //
+    // This Function replaces a specified character at a specified index in a string //
     String.prototype.setCharAt = function(idx,chr) {
         if (idx > this.length -1) {
             return this.toString();
@@ -89,28 +89,32 @@ function playGame () {
             lettersGuessedText.textContent = lettersGuessed;
         
         }
-        if (userGuess === "Enter") {
-            playGame();
-        }
-        if (guessesRemaining === 0) {
-            var gameEnd = "You have lost!  You should try again!  Press Enter to play again";
-            gameEndText.textContent = gameEnd;
-            games += 1;
-            console.log("Games played: " + games);
-            console.log("Wins: " + wins);
-            console.log("Press Enter to play again!");
 
-        }
         var finished = placeHolder.includes("_");
         if (finished === false) {
             var gameEnd = "You have won the game!!  Press Enter to play again";
             gameEndText.textContent = gameEnd;
             wins += 1;
             games += 1;
+            winsText.textContent = "Wins: " + wins;
+            gamesPlayed.textContent = "Games Played: " + games;
             console.log("Games played: " + games);
             console.log("Wins: " + wins);
             console.log("Press Enter to play again!");
 
+        }
+        if (guessesRemaining === 0) {
+            var gameEnd = "You have lost!  You should try again!  Press Enter to play again";
+            gameEndText.textContent = gameEnd;
+            games += 1;
+            gamesPlayed.textContent = "Games Played: " + games;
+            console.log("Games played: " + games);
+            console.log("Wins: " + wins);
+            console.log("Press Enter to play again!");
+
+            if (userGuess === "Enter") {
+                playGame();
+            }
         }
 
     };
