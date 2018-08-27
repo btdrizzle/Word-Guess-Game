@@ -4,6 +4,8 @@ var romantics = ["wagner","tchaikovsky","beethoven","brahms",
         "puccini","dvorak","berlioz","mahler","grieg"];
 console.log(romantics);
 
+var isGameOver = false;
+
 var wins = 0;
 console.log("# of wins: " + wins);
 var winsText = document.getElementById("wins-text");
@@ -16,6 +18,7 @@ gamesPlayed.textContent = "Games Played: " + games;
 
 //WANT TO MAKE CODE JUMP TO HERE FOR EACH NEW GAME //
 function playGame () {
+    isGameOver = false;
 
     //Random word from array selected by randomly selecting number //
     var gameWord = romantics[Math.floor(Math.random() * romantics.length)];
@@ -53,6 +56,11 @@ function playGame () {
     }
 
     document.onkeyup = function(event) {
+        if(isGameOver&&event.key === "Enter"){
+            playGame();
+            return;
+        }
+
         var userGuess = event.key;
         console.log("The player guessed " + userGuess);
 
@@ -102,7 +110,7 @@ function playGame () {
             console.log("Games played: " + games);
             console.log("Wins: " + wins);
             console.log("Press Enter to play again!");
-
+            isGameOver = true;
         }
         if (guessesRemaining === 0) {
             var gameEnd = "You have lost!  You should try again!  Press Enter to play again";
@@ -112,11 +120,7 @@ function playGame () {
             console.log("Games played: " + games);
             console.log("Wins: " + wins);
             console.log("Press Enter to play again!");
-
-
-        }
-        if (userGuess === "Enter") {
-            playGame();
+            isGameOver = true;
         }
 
     };
