@@ -1,7 +1,32 @@
 
-var romantics = ["wagner","tchaikovsky","beethoven","brahms",
-        "verdi","schubert","mendelssohn","mussorgsky","strauss",
-        "puccini","dvorak","berlioz","mahler","grieg"];
+var romantics = {0 : {composer: "wagner",
+                      image: "./assets/images/wagner.jpg"},
+                 1 : {composer: "tchaikovsky",
+                      image: "./assets/images/tchaikovsky.gif"},
+                 2 : {composer: "beethoven",
+                      image: "./assets/images/beethoven.jpg"},
+                 3 : {composer: "brahms",
+                      image: "./assets/images/brahms.jpg"},
+                 4 : {composer: "verdi",
+                      image: "./assets/images/verdi.jpg"},
+                 5 : {composer: "schubert",
+                      image: "./assets/images/schubert.jpg"},
+                 6 : {composer: "mendelssohn",
+                      image: "./assets/images/mendelssohn.jpg"},
+                 7 : {composer: "mussorgsky",
+                      image: "./assets/images/mussorgsky.jpg"},
+                 8 : {composer: "strauss",
+                      image: "./assets/images/strauss.jpg"},
+                 9 : {composer: "puccini",
+                       image: "./assets/images/puccini.jpg"},
+                 10:  {composer: "dvorak",
+                       image: "./assets/images/dvorak.jpg"},
+                 11:  {composer: "berlioz",
+                       image: "./assets/images/berlioz.jpg"},
+                 12:  {composer: "mahler",
+                       image: "./assets/images/mahler.jpg"},
+                 13:  {composer: "grieg",
+                       image: "./assets/images/grieg.jpg"}};
 console.log(romantics);
 
 var isGameOver = false;
@@ -21,8 +46,11 @@ function playGame () {
     isGameOver = false;
 
     //Random word from array selected by randomly selecting number //
-    var gameWord = romantics[Math.floor(Math.random() * romantics.length)];
+    var randNum = Math.floor(Math.random() * 14)
+    var gameWord = romantics[randNum]["composer"];
     console.log("The word this game is: " + gameWord);
+
+    document.getElementById("composer").src = romantics[randNum]["image"];
 
     //Creates _ _ _ _ in place of letters in word //
     var placeHolder = "_".repeat(gameWord.length);

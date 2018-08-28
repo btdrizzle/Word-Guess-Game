@@ -20,12 +20,12 @@ h1 {
     margin: auto;
     padding: 10px 0;
 }
-h2, h3 {
+h2, h3, h4 {
     text-align: center;
     font-weight: bold;
 }
 p {
-    font-size: 1.5em;
+    font-size: 1.2rem;
     font-weight: bold;
     max-width: 80%;
     margin: auto;
@@ -44,57 +44,51 @@ p {
 }
 #gameplay1 {
     padding: 5px;
-    height: calc(100vh - 150px);
+      
+}
+img {
+    max-height: 300px;
+    margin: auto;
+}
+.composer {
+    margin: auto;
+    width: 100%;
 }
 .games {
-    min-height: 50%;
+    margin: 0 0 20px 0;
 }
 #maingame {
-    height: calc(100vh - 150px);  
+    
     padding: 5px;
 }
 #placeholder-text {
     margin: auto;
     letter-spacing: 5px;
     text-align: center;
-    position: absolute;
-    bottom: 40px;
     width: 100%;
+    min-height: 60px;
 }
   
-@include media-breakpoint-up(sm) {
+@media (max-width: 768px) {
+    html {
+      font-size: 1rem;
+    }
+}
+  
+@media (min-width: 769px) {
     html {
       font-size: 1.2rem;
     }
 }
   
-@include media-breakpoint-up(md) {
+@media (min-width: 992px) {
     html {
       font-size: 1.4rem;
     }
 }
-  
-@include media-breakpoint-up(lg) {
-    html {
-      font-size: 1.6rem;
-    }
-}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 1100px) { /* The display tag is not responsive.  This is a fix */
+@media (max-width: 1000px) { /* The display tag is not responsive.  This is a fix */
     .display-1 {
         font-size: 3rem;
         font-weight: 300;
